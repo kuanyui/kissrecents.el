@@ -30,21 +30,15 @@ A simple and stupid recents list, without any confusing behaviors -- just do wha
 (require 'recentz)
 (setq recentz-ignore-path-patterns '("/COMMIT_EDITMSG$" "~$" "/node_modules/"))
 
-;; If you prefer (Emacs built-in) Ido
-(global-set-key (kbd "C-x C-r") 'recentz-files)  ;; Add universal argument prefix "C-u" (that is "C-u C-x C-r") can open the recent TRAMP-opened files instead.
+;; Choose prefered completion UI. Available options: 'helm, 'ido
+(setq recentz-ui 'helm)
+
+(global-set-key (kbd "C-x C-r") 'recentz-files)   ;; Add universal argument prefix "C-u" (that is "C-u C-x C-r") can open the recent TRAMP-opened files instead.
 (global-set-key (kbd "C-x C-d") 'recentz-directories)
 (global-set-key (kbd "C-x C-p") 'recentz-projects)
-(global-set-key (kbd "C-x C-S-r") 'recentz-tramp-files)        ;; Optional, because it's equivalient to C-u C-x C-r
-(global-set-key (kbd "C-x C-S-d") 'recentz-tramp-directories)
-(global-set-key (kbd "C-x C-S-p") 'recentz-tramp-projects)
-
-;; If you prefer Helm
-(global-set-key (kbd "C-x C-r") 'helm-recentz-files)   ;; Add universal argument prefix "C-u" (that is "C-u C-x C-r") can open the recent TRAMP-opened files instead.
-(global-set-key (kbd "C-x C-d") 'helm-recentz-directories)
-(global-set-key (kbd "C-x C-p") 'helm-recentz-projects)
-(global-set-key (kbd "C-x C-S-r") 'helm-recentz-tramp-files)         ;; Optional, because it's equivalient to C-u C-x C-r
-(global-set-key (kbd "C-x C-S-d") 'helm-recentz-tramp-directories)
-(global-set-key (kbd "C-x C-S-p") 'helm-recentz-tramp-projects)
+(global-set-key (kbd "C-x C-S-r") 'recentz-tramp-files)         ;; (Optional, because it's equivalient to C-u + `recentz-files')
+(global-set-key (kbd "C-x C-S-d") 'recentz-tramp-directories)   ;; (Optional, the reason is same above)
+(global-set-key (kbd "C-x C-S-p") 'recentz-tramp-projects)      ;; (Optional, the reason is same above)
 ```
 
 > [!TIP]
